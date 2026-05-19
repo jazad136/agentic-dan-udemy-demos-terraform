@@ -1,0 +1,564 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.15.3",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_iam_role.js_message_lambda_role",
+          "mode": "managed",
+          "type": "aws_iam_role",
+          "name": "js_message_lambda_role",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "arn": "arn:aws:iam::775288318050:role/js-message-lambda-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2026-05-19T12:21:38Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "js-message-lambda-role",
+            "inline_policy": [],
+            "managed_policy_arns": [
+              "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+            ],
+            "max_session_duration": 3600,
+            "name": "js-message-lambda-role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {},
+            "tags_all": {},
+            "unique_id": "AROA3JAWI5BRFFNP7UVSJ"
+          },
+          "sensitive_values": {
+            "inline_policy": [],
+            "managed_policy_arns": [
+              false
+            ],
+            "tags": {},
+            "tags_all": {}
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "name": "js-message-lambda-role"
+          }
+        },
+        {
+          "address": "aws_iam_role.py_message_lambda_role",
+          "mode": "managed",
+          "type": "aws_iam_role",
+          "name": "py_message_lambda_role",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "arn": "arn:aws:iam::775288318050:role/py-message-lambda-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2026-05-19T12:21:38Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "py-message-lambda-role",
+            "inline_policy": [],
+            "managed_policy_arns": [
+              "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+            ],
+            "max_session_duration": 3600,
+            "name": "py-message-lambda-role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {},
+            "tags_all": {},
+            "unique_id": "AROA3JAWI5BRC7W2QURFY"
+          },
+          "sensitive_values": {
+            "inline_policy": [],
+            "managed_policy_arns": [
+              false
+            ],
+            "tags": {},
+            "tags_all": {}
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "name": "py-message-lambda-role"
+          }
+        },
+        {
+          "address": "aws_iam_role_policy_attachment.js_message_lambda_policy_attachment",
+          "mode": "managed",
+          "type": "aws_iam_role_policy_attachment",
+          "name": "js_message_lambda_policy_attachment",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "id": "js-message-lambda-role/arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "role": "js-message-lambda-role"
+          },
+          "sensitive_values": {},
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "role": "js-message-lambda-role"
+          }
+        },
+        {
+          "address": "aws_iam_role_policy_attachment.py_message_lambda_policy_attachment",
+          "mode": "managed",
+          "type": "aws_iam_role_policy_attachment",
+          "name": "py_message_lambda_policy_attachment",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "id": "py-message-lambda-role/arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "role": "py-message-lambda-role"
+          },
+          "sensitive_values": {},
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "role": "py-message-lambda-role"
+          }
+        },
+        {
+          "address": "aws_lambda_function.js_message_lambda",
+          "mode": "managed",
+          "type": "aws_lambda_function",
+          "name": "js_message_lambda",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:775288318050:function:js-message-lambda",
+            "capacity_provider_config": [],
+            "code_sha256": "ruBvstKJAxFeT0UG7J/chCchBrHlbVK76ZgqkjCeqXY=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "durable_config": [],
+            "environment": [
+              {
+                "variables": {
+                  "MESSAGES_BUCKET": "messages-bucket--choice-gazelle"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./.terraform/js/src.zip",
+            "function_name": "js-message-lambda",
+            "handler": "HandleMessage.handler",
+            "id": "js-message-lambda",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:775288318050:function:js-message-lambda/invocations",
+            "kms_key_arn": "",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/js-message-lambda",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "publish_to": null,
+            "qualified_arn": "arn:aws:lambda:us-east-1:775288318050:function:js-message-lambda:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:775288318050:function:js-message-lambda:$LATEST/invocations",
+            "region": "us-east-1",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": -1,
+            "response_streaming_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-east-1:775288318050:function:js-message-lambda/response-streaming-invocations",
+            "role": "arn:aws:iam::775288318050:role/js-message-lambda-role",
+            "runtime": "nodejs24.x",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "NwtfKOFCLETxDK7t0EitUaW+68gU9cM+gRjHu1AJNJ8=",
+            "source_code_size": 358,
+            "source_kms_key_arn": "",
+            "tags": {},
+            "tags_all": {},
+            "tenancy_config": [],
+            "timeout": 3,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_values": {
+            "architectures": [
+              false
+            ],
+            "capacity_provider_config": [],
+            "dead_letter_config": [],
+            "durable_config": [],
+            "environment": [
+              {
+                "variables": {}
+              }
+            ],
+            "ephemeral_storage": [
+              {}
+            ],
+            "file_system_config": [],
+            "image_config": [],
+            "layers": [],
+            "logging_config": [
+              {}
+            ],
+            "snap_start": [],
+            "tags": {},
+            "tags_all": {},
+            "tenancy_config": [],
+            "tracing_config": [
+              {}
+            ],
+            "vpc_config": []
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "function_name": "js-message-lambda",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "address": "aws_lambda_function.py_message_lambda",
+          "mode": "managed",
+          "type": "aws_lambda_function",
+          "name": "py_message_lambda",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda",
+            "capacity_provider_config": [],
+            "code_sha256": "H7CovpRAzUVdWBTSmrmAsiDf2rpNmRnKBPlApy8H7Xg=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "durable_config": [],
+            "environment": [
+              {
+                "variables": {
+                  "MESSAGES_BUCKET": "messages-bucket--choice-gazelle"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./.terraform/py/src.zip",
+            "function_name": "py-message-lambda",
+            "handler": "lambda.handler",
+            "id": "py-message-lambda",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2026-05-19T12:30:14.000+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/py-message-lambda",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "publish_to": null,
+            "qualified_arn": "arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda:$LATEST/invocations",
+            "region": "us-east-1",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": -1,
+            "response_streaming_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2021-11-15/functions/arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda/response-streaming-invocations",
+            "role": "arn:aws:iam::775288318050:role/py-message-lambda-role",
+            "runtime": "python3.13",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "H7CovpRAzUVdWBTSmrmAsiDf2rpNmRnKBPlApy8H7Xg=",
+            "source_code_size": 307,
+            "source_kms_key_arn": "",
+            "tags": {},
+            "tags_all": {},
+            "tenancy_config": [],
+            "timeout": 3,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_values": {
+            "architectures": [
+              false
+            ],
+            "capacity_provider_config": [],
+            "dead_letter_config": [],
+            "durable_config": [],
+            "environment": [
+              {
+                "variables": {}
+              }
+            ],
+            "ephemeral_storage": [
+              {}
+            ],
+            "file_system_config": [],
+            "image_config": [],
+            "layers": [],
+            "logging_config": [
+              {}
+            ],
+            "snap_start": [],
+            "tags": {},
+            "tags_all": {},
+            "tenancy_config": [],
+            "tracing_config": [
+              {}
+            ],
+            "vpc_config": []
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "function_name": "py-message-lambda",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "address": "aws_s3_bucket.messages_bucket",
+          "mode": "managed",
+          "type": "aws_s3_bucket",
+          "name": "messages_bucket",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::messages-bucket--choice-gazelle",
+            "bucket": "messages-bucket--choice-gazelle",
+            "bucket_domain_name": "messages-bucket--choice-gazelle.s3.amazonaws.com",
+            "bucket_namespace": "global",
+            "bucket_prefix": "",
+            "bucket_region": "us-east-1",
+            "bucket_regional_domain_name": "messages-bucket--choice-gazelle.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "e44e1935d8e0f4c964a5039e8c33eb61e0c1480efb96a0ce6abd4dd3f7c39df3",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "messages-bucket--choice-gazelle",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "tags_all": {},
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_values": {
+            "cors_rule": [],
+            "grant": [
+              {
+                "permissions": [
+                  false
+                ]
+              }
+            ],
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "replication_configuration": [],
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {}
+                    ]
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "tags_all": {},
+            "versioning": [
+              {}
+            ],
+            "website": []
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "bucket": "messages-bucket--choice-gazelle",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "address": "random_pet.messages_bucket_name",
+          "mode": "managed",
+          "type": "random_pet",
+          "name": "messages_bucket_name",
+          "provider_name": "registry.terraform.io/hashicorp/random",
+          "schema_version": 0,
+          "values": {
+            "id": "messages-bucket--choice-gazelle",
+            "keepers": null,
+            "length": 2,
+            "prefix": "messages-bucket-",
+            "separator": "-"
+          },
+          "sensitive_values": {}
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "aws_iam_role.js_message_lambda_role",
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "js_message_lambda_role",
+      "provider_name": "registry.terraform.io/hashicorp/aws",
+      "change": {
+        "actions": [
+          "no-op"
+        ],
+        "before": {
+          "arn": "arn:aws:iam::775288318050:role/js-message-lambda-role",
+          "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+          "create_date": "2026-05-19T12:21:38Z",
+          "description": "",
+          "force_detach_policies": false,
+          "id": "js-message-lambda-role",
+          "inline_policy": [],
+          "managed_policy_arns": [
+            "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+          ],
+          "max_session_duration": 3600,
+          "name": "js-message-lambda-role",
+          "name_prefix": "",
+          "path": "/",
+          "permissions_boundary": "",
+          "tags": {},
+          "tags_all": {},
+          "unique_id": "AROA3JAWI5BRFFNP7UVSJ"
+        },
+        "after": {
+          "arn": "arn:aws:iam::775288318050:role/js-message-lambda-role",
+          "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+          "create_date": "2026-05-19T12:21:38Z",
+          "description": "",
+          "force_detach_policies": false,
+          "id": "js-message-lambda-role",
+          "inline_policy": [],
+          "managed_policy_arns": [
+            "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+          ],
+          "max_session_duration": 3600,
+          "name": "js-message-lambda-role",
+          "name_prefix": "",
+          "path": "/",
+          "permissions_boundary": "",
+          "tags": {},
+          "tags_all": {},
+          "unique_id": "AROA3JAWI5BRFFNP7UVSJ"
+        },
+        "after_unknown": {},
+        "before_sensitive": {
+          "inline_policy": [],
+          "managed_policy_arns": [
+            false
+          ],
+          "tags": {},
+          "tags_all": {}
+        },
+        "after_sensitive": {
+          "inline_policy": [],
+          "managed_policy_arns": [
+            false
+          ],
+          "tags": {},
+          "tags_all": {}
+        },
+        "bef
