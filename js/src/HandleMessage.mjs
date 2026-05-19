@@ -1,6 +1,6 @@
-const bucketName = process.env.MESSAGE_BUCKET;
+const bucketName = process.env.MESSAGES_BUCKET;
 
-export const handler = async (event) => {
+const handler = async (event) => {
     console.log(bucketName)
     const response = {
         statusCode: 200,
