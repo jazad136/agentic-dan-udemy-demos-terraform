@@ -2,8 +2,211 @@
   "format_version": "1.2",
   "terraform_version": "1.15.3",
   "planned_values": {
+    "outputs": {
+      "messages_api_dev_stage_endpoint": {
+        "sensitive": false,
+        "type": "string",
+        "value": "https://4l7zr0jstk.execute-api.us-east-1.amazonaws.com/dev"
+      }
+    },
     "root_module": {
       "resources": [
+        {
+          "address": "aws_apigatewayv2_api.messages_api",
+          "mode": "managed",
+          "type": "aws_apigatewayv2_api",
+          "name": "messages_api",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "api_endpoint": "https://4l7zr0jstk.execute-api.us-east-1.amazonaws.com",
+            "api_key_selection_expression": "$request.header.x-api-key",
+            "arn": "arn:aws:apigateway:us-east-1::/apis/4l7zr0jstk",
+            "body": null,
+            "cors_configuration": [],
+            "credentials_arn": null,
+            "description": "",
+            "disable_execute_api_endpoint": false,
+            "execution_arn": "arn:aws:execute-api:us-east-1:775288318050:4l7zr0jstk",
+            "fail_on_warnings": null,
+            "id": "4l7zr0jstk",
+            "ip_address_type": "ipv4",
+            "name": "messages-api",
+            "protocol_type": "HTTP",
+            "region": "us-east-1",
+            "route_key": null,
+            "route_selection_expression": "$request.method $request.path",
+            "tags": {},
+            "tags_all": {},
+            "target": null,
+            "version": ""
+          },
+          "sensitive_values": {
+            "cors_configuration": [],
+            "tags": {},
+            "tags_all": {}
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "id": "4l7zr0jstk",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "address": "aws_apigatewayv2_integration.messages_integration",
+          "mode": "managed",
+          "type": "aws_apigatewayv2_integration",
+          "name": "messages_integration",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "api_id": "4l7zr0jstk",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling_strategy": "",
+            "credentials_arn": "",
+            "description": "",
+            "id": "pv1ks10",
+            "integration_method": "POST",
+            "integration_response_selection_expression": "",
+            "integration_subtype": "",
+            "integration_type": "AWS_PROXY",
+            "integration_uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda/invocations",
+            "passthrough_behavior": "",
+            "payload_format_version": "1.0",
+            "region": "us-east-1",
+            "request_parameters": {},
+            "request_templates": {},
+            "response_parameters": [],
+            "template_selection_expression": "",
+            "timeout_milliseconds": 30000,
+            "tls_config": []
+          },
+          "sensitive_values": {
+            "request_parameters": {},
+            "request_templates": {},
+            "response_parameters": [],
+            "tls_config": []
+          }
+        },
+        {
+          "address": "aws_apigatewayv2_route.get_messages_route",
+          "mode": "managed",
+          "type": "aws_apigatewayv2_route",
+          "name": "get_messages_route",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "api_id": "4l7zr0jstk",
+            "api_key_required": false,
+            "authorization_scopes": [],
+            "authorization_type": "NONE",
+            "authorizer_id": "",
+            "id": "7acka6u",
+            "model_selection_expression": "",
+            "operation_name": "",
+            "region": "us-east-1",
+            "request_models": {},
+            "request_parameter": [],
+            "route_key": "GET /messages",
+            "route_response_selection_expression": "",
+            "target": "integrations/pv1ks10"
+          },
+          "sensitive_values": {
+            "authorization_scopes": [],
+            "request_models": {},
+            "request_parameter": []
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "api_id": "4l7zr0jstk",
+            "id": "7acka6u",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "address": "aws_apigatewayv2_route.post_messages_route",
+          "mode": "managed",
+          "type": "aws_apigatewayv2_route",
+          "name": "post_messages_route",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "api_id": "4l7zr0jstk",
+            "api_key_required": false,
+            "authorization_scopes": [],
+            "authorization_type": "NONE",
+            "authorizer_id": "",
+            "id": "tc4vwyp",
+            "model_selection_expression": "",
+            "operation_name": "",
+            "region": "us-east-1",
+            "request_models": {},
+            "request_parameter": [],
+            "route_key": "POST /messages",
+            "route_response_selection_expression": "",
+            "target": "integrations/pv1ks10"
+          },
+          "sensitive_values": {
+            "authorization_scopes": [],
+            "request_models": {},
+            "request_parameter": []
+          },
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "api_id": "4l7zr0jstk",
+            "id": "tc4vwyp",
+            "region": "us-east-1"
+          }
+        },
+        {
+          "address": "aws_apigatewayv2_stage.dev_stage",
+          "mode": "managed",
+          "type": "aws_apigatewayv2_stage",
+          "name": "dev_stage",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "access_log_settings": [],
+            "api_id": "4l7zr0jstk",
+            "arn": "arn:aws:apigateway:us-east-1::/apis/4l7zr0jstk/stages/dev",
+            "auto_deploy": true,
+            "client_certificate_id": "",
+            "default_route_settings": [
+              {
+                "data_trace_enabled": false,
+                "detailed_metrics_enabled": false,
+                "logging_level": "",
+                "throttling_burst_limit": 0,
+                "throttling_rate_limit": 0
+              }
+            ],
+            "deployment_id": "krzvg3",
+            "description": "",
+            "execution_arn": "arn:aws:execute-api:us-east-1:775288318050:4l7zr0jstk/dev",
+            "id": "dev",
+            "invoke_url": "https://4l7zr0jstk.execute-api.us-east-1.amazonaws.com/dev",
+            "name": "dev",
+            "region": "us-east-1",
+            "route_settings": [],
+            "stage_variables": {},
+            "tags": {},
+            "tags_all": {}
+          },
+          "sensitive_values": {
+            "access_log_settings": [],
+            "default_route_settings": [
+              {}
+            ],
+            "route_settings": [],
+            "stage_variables": {},
+            "tags": {},
+            "tags_all": {}
+          }
+        },
         {
           "address": "aws_iam_role.js_message_lambda_role",
           "mode": "managed",
@@ -139,7 +342,7 @@
             ],
             "arn": "arn:aws:lambda:us-east-1:775288318050:function:js-message-lambda",
             "capacity_provider_config": [],
-            "code_sha256": "ruBvstKJAxFeT0UG7J/chCchBrHlbVK76ZgqkjCeqXY=",
+            "code_sha256": "NwtfKOFCLETxDK7t0EitUaW+68gU9cM+gRjHu1AJNJ8=",
             "code_signing_config_arn": "",
             "dead_letter_config": [],
             "description": "",
@@ -165,6 +368,7 @@
             "image_uri": "",
             "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:775288318050:function:js-message-lambda/invocations",
             "kms_key_arn": "",
+            "last_modified": "2026-05-19T13:11:15.000+0000",
             "layers": [],
             "logging_config": [
               {
@@ -260,7 +464,7 @@
             ],
             "arn": "arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda",
             "capacity_provider_config": [],
-            "code_sha256": "H7CovpRAzUVdWBTSmrmAsiDf2rpNmRnKBPlApy8H7Xg=",
+            "code_sha256": "owvMITfAER4VWmuqNKLsH8AlWeiGpDseUH6CyzEyRec=",
             "code_signing_config_arn": "",
             "dead_letter_config": [],
             "description": "",
@@ -286,7 +490,7 @@
             "image_uri": "",
             "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:775288318050:function:py-message-lambda/invocations",
             "kms_key_arn": "",
-            "last_modified": "2026-05-19T12:30:14.000+0000",
+            "last_modified": "2026-05-19T18:23:30.000+0000",
             "layers": [],
             "logging_config": [
               {
@@ -316,8 +520,8 @@
             "signing_profile_version_arn": "",
             "skip_destroy": false,
             "snap_start": [],
-            "source_code_hash": "H7CovpRAzUVdWBTSmrmAsiDf2rpNmRnKBPlApy8H7Xg=",
-            "source_code_size": 307,
+            "source_code_hash": "owvMITfAER4VWmuqNKLsH8AlWeiGpDseUH6CyzEyRec=",
+            "source_code_size": 445,
             "source_kms_key_arn": "",
             "tags": {},
             "tags_all": {},
@@ -367,6 +571,37 @@
             "account_id": "775288318050",
             "function_name": "py-message-lambda",
             "region": "us-east-1"
+          }
+        },
+        {
+          "address": "aws_lambda_permission.messages_lambda_permission",
+          "mode": "managed",
+          "type": "aws_lambda_permission",
+          "name": "messages_lambda_permission",
+          "provider_name": "registry.terraform.io/hashicorp/aws",
+          "schema_version": 0,
+          "values": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "py-message-lambda",
+            "function_url_auth_type": null,
+            "invoked_via_function_url": null,
+            "principal": "apigateway.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": null,
+            "region": "us-east-1",
+            "source_account": null,
+            "source_arn": "arn:aws:execute-api:us-east-1:775288318050:4l7zr0jstk/*/*",
+            "statement_id": "AllowExecutionFromAPIGateway"
+          },
+          "sensitive_values": {},
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "775288318050",
+            "function_name": "py-message-lambda",
+            "qualifier": null,
+            "region": "us-east-1",
+            "statement_id": "AllowAPIGatewayInvoke"
           }
         },
         {
@@ -495,70 +730,53 @@
   },
   "resource_changes": [
     {
-      "address": "aws_iam_role.js_message_lambda_role",
+      "address": "aws_apigatewayv2_api.messages_api",
       "mode": "managed",
-      "type": "aws_iam_role",
-      "name": "js_message_lambda_role",
+      "type": "aws_apigatewayv2_api",
+      "name": "messages_api",
       "provider_name": "registry.terraform.io/hashicorp/aws",
       "change": {
         "actions": [
           "no-op"
         ],
         "before": {
-          "arn": "arn:aws:iam::775288318050:role/js-message-lambda-role",
-          "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
-          "create_date": "2026-05-19T12:21:38Z",
+          "api_endpoint": "https://4l7zr0jstk.execute-api.us-east-1.amazonaws.com",
+          "api_key_selection_expression": "$request.header.x-api-key",
+          "arn": "arn:aws:apigateway:us-east-1::/apis/4l7zr0jstk",
+          "body": null,
+          "cors_configuration": [],
+          "credentials_arn": null,
           "description": "",
-          "force_detach_policies": false,
-          "id": "js-message-lambda-role",
-          "inline_policy": [],
-          "managed_policy_arns": [
-            "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-          ],
-          "max_session_duration": 3600,
-          "name": "js-message-lambda-role",
-          "name_prefix": "",
-          "path": "/",
-          "permissions_boundary": "",
+          "disable_execute_api_endpoint": false,
+          "execution_arn": "arn:aws:execute-api:us-east-1:775288318050:4l7zr0jstk",
+          "fail_on_warnings": null,
+          "id": "4l7zr0jstk",
+          "ip_address_type": "ipv4",
+          "name": "messages-api",
+          "protocol_type": "HTTP",
+          "region": "us-east-1",
+          "route_key": null,
+          "route_selection_expression": "$request.method $request.path",
           "tags": {},
           "tags_all": {},
-          "unique_id": "AROA3JAWI5BRFFNP7UVSJ"
+          "target": null,
+          "version": ""
         },
         "after": {
-          "arn": "arn:aws:iam::775288318050:role/js-message-lambda-role",
-          "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
-          "create_date": "2026-05-19T12:21:38Z",
+          "api_endpoint": "https://4l7zr0jstk.execute-api.us-east-1.amazonaws.com",
+          "api_key_selection_expression": "$request.header.x-api-key",
+          "arn": "arn:aws:apigateway:us-east-1::/apis/4l7zr0jstk",
+          "body": null,
+          "cors_configuration": [],
+          "credentials_arn": null,
           "description": "",
-          "force_detach_policies": false,
-          "id": "js-message-lambda-role",
-          "inline_policy": [],
-          "managed_policy_arns": [
-            "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-          ],
-          "max_session_duration": 3600,
-          "name": "js-message-lambda-role",
-          "name_prefix": "",
-          "path": "/",
-          "permissions_boundary": "",
-          "tags": {},
-          "tags_all": {},
-          "unique_id": "AROA3JAWI5BRFFNP7UVSJ"
-        },
-        "after_unknown": {},
-        "before_sensitive": {
-          "inline_policy": [],
-          "managed_policy_arns": [
-            false
-          ],
-          "tags": {},
-          "tags_all": {}
-        },
-        "after_sensitive": {
-          "inline_policy": [],
-          "managed_policy_arns": [
-            false
-          ],
-          "tags": {},
-          "tags_all": {}
-        },
-        "bef
+          "disable_execute_api_endpoint": false,
+          "execution_arn": "arn:aws:execute-api:us-east-1:775288318050:4l7zr0jstk",
+          "fail_on_warnings": null,
+          "id": "4l7zr0jstk",
+          "ip_address_type": "ipv4",
+          "name": "messages-api",
+          "protocol_type": "HTTP",
+          "region": "us-east-1",
+          "route_key": null,
+          "route_selection_expression": "$request.method $request.path

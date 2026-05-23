@@ -1,0 +1,11 @@
+@url = "https://4l7zr0jstk.execute-api.us-east-1.amazonaws.com/dev"
+
+GET {{url}}/messages
+###
+POST {{url}}/messages
+Content-Type: application/json
+
+{
+    "message": "Hello World!"
+}
+###
