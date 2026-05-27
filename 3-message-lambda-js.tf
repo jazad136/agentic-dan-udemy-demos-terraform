@@ -2,7 +2,7 @@ data "archive_file" "js_message_lambda_zip" {
     type = "zip"
     source_dir = "${path.module}/js/dist"
     output_path = "${path.module}/.terraform/js/src.zip"
-    depends_on = [ null_resource.npm_install ]
+    depends_on = [ null_resource.npm_build ]
 
 }
 # basic role for lambda
