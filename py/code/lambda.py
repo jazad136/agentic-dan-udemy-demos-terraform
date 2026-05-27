@@ -1,5 +1,6 @@
 import json
 import os
+import requests
 bucket_name = os.environ['MESSAGES_BUCKET']
 
 def handler(event, context):
@@ -8,6 +9,7 @@ def handler(event, context):
         # 'statusCode': 200,
         # 'body': json.dumps('Hello from Lambda')
     # }
+    print(requests.__version__)
     method = event['httpMethod']
     if method == 'GET':
         return get_messages()
