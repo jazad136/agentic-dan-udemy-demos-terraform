@@ -1,7 +1,9 @@
 data "archive_file" "js_message_lambda_zip" {
     type = "zip"
-    source_dir = "${path.module}/js/src"
+    source_dir = "${path.module}/js/dist"
     output_path = "${path.module}/.terraform/js/src.zip"
+    depends_on = [ null_resource.npm_install ]
+
 }
 # basic role for lambda
 resource "aws_iam_role" "js_message_lambda_role" {
@@ -37,5 +39,26 @@ resource "aws_lambda_function" "js_message_lambda" {
         variables = {
             MESSAGES_BUCKET = aws_s3_bucket.messages_bucket.id            
         }
+    }
+}
+
+resource "null_resource" "npm_build" {
+    triggers = {
+        always_run = "${timestamp()}"
+    }
+    provisioner "local-exec" {
+        command = "npm run build"
+        working_dir = "${path.module}/js"
+    }
+
+    depends_on = [null_resource.npm_install]
+}
+resource "null_resource" "npm_install" { 
+    triggers = {
+        shell_hash = "${sha256(file("${path.module}/js/package.json"))}"
+    }
+    provisioner "local-exec" {
+        command = "npm install"
+        working_dir = "${path.module}/js"
     }
 }
