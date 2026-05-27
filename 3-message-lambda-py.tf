@@ -11,19 +11,6 @@ resource "aws_iam_role" "py_message_lambda_role" {
         Statement = [
             {
                 Action = "sts:AssumeRole"
-data "archive_file" "py_message_lambda_zip" {
-    type = "zip"
-    source_dir = "${path.module}/py/code"
-    output_path = "${path.module}/.terraform/py/src.zip"
-}
-# basic role for lambda
-resource "aws_iam_role" "py_message_lambda_role" {
-    name = "py-message-lambda-role"
-    assume_role_policy = jsonencode({
-        Version = "2012-10-17"
-        Statement = [
-            {
-                Action = "sts:AssumeRole"
                 Effect = "Allow"
                 Principal = {
                     Service = "lambda.amazonaws.com"
