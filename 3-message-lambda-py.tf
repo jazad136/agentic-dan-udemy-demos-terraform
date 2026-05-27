@@ -59,6 +59,6 @@ resource "null_resource" "pip_install" {
         shell_hash = "${sha256(file("${path.module}/py/requirements.txt"))}"
     }
     provisioner "local-exec" {
-        command = "python -m pip install -r py/requirements.txt -t ${path.module}/py/layer"
+        command = "python -m pip install -r py/requirements.txt -t ${path.module}/py/layer/python"
     }
 }
